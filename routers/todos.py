@@ -44,7 +44,7 @@ async def add_new_todo(request: Request):
     user = await get_current_user(request)
     if user is None:
         return RedirectResponse(url='/auth', status_code=status.HTTP_302_FOUND)
-    
+
     return templates.TemplateResponse('add-todo.html', {'request': request, 'user': user})
 
 @router.post('/add-todo', response_class=HTMLResponse)
